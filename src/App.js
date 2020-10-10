@@ -5,7 +5,7 @@ import "./App.css";
 
 class App extends Component {
 	constructor(props) {
-	  super(props);
+		super(props);
 		this.state = { number: 7 };
 	}
 
@@ -13,9 +13,11 @@ class App extends Component {
 		return (
 			<div>
 				<h1>Root</h1>
-				<AddNumberRoot getNumber={function(id){
-          this.setState({number:id + this.state.number});
-        }.bind(this)}></AddNumberRoot>
+				<AddNumberRoot
+					getNumber={function (id) {
+						this.setState({ number: id + this.state.number });
+					}.bind(this)}
+				></AddNumberRoot>
 				<DisplayNumberRoot number={this.state.number}></DisplayNumberRoot>
 			</div>
 		);

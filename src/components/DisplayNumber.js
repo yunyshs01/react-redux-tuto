@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
+class DisplayNumber extends Component {
+	render() {
+		return (
+			<div>
+				<h1>Display Number</h1>
+				<input type="button" value={this.props.number} readOnly></input>
+			</div>
+		);
+	}
+}
 
-class DisplayNumber extends Component{
-    render(){
-      return(
-        <div>
-          <h1>Display Number</h1>
-          <input type="button" value={this.props.number} readOnly></input>
-          
-        </div>
-      )
-    }
-  }
-  
-
-  export default DisplayNumber;
+export default DisplayNumber;
