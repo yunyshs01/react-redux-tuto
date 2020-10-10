@@ -1,19 +1,27 @@
 import DisplayNumber from "../components/DisplayNumber";
-import React, { Component } from "react";
-import store from "../store";
 
-export default class extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { number: store.getState().number };
-		store.subscribe(
-			function () {
-				this.setState({ number: store.getState().number });
-			}.bind(this)
-		);
-	}
+import { connect } from "react-redux";
 
-	render() {
-		return <DisplayNumber number={this.state.number}></DisplayNumber>;
-	}
+function mapReduxStateToReactProps(state) {
+	return {
+		number: state.number,
+	};
 }
+
+export default connect(mapReduxStateToReactProps)(DisplayNumber);
+
+// export default class extends Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = { number: store.getState().number };
+// 		store.subscribe(
+// 			function () {
+// 				this.setState({ number: store.getState().number });
+// 			}.bind(this)
+// 		);
+// 	}
+
+// 	render() {
+// 		return <DisplayNumber number={this.state.number}></DisplayNumber>;
+// 	}
+// }
